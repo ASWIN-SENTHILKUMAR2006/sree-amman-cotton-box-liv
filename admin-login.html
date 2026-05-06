@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login — SREE AMMAN PACKERS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --blue: #1a3c6b;
+      --blue-dark: #0d2347;
+      --blue-light: #2563eb;
+      --beige: #F5F0E8;
+      --beige-dark: #E8DFD0;
+      --brown: #8B5E3C;
+      --border: #DDE3EE;
+      --text: #1e293b;
+      --muted: #64748b;
+      --white: #fff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--beige);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── LEFT BRAND PANEL ─── */
+    .brand-panel {
+      background: linear-gradient(145deg, var(--blue-dark) 0%, var(--blue) 50%, #1e4d8c 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 48px;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .brand-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .brand-panel::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255, 255, 255, .06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .brand-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .brand-logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgb(255, 255, 255);
+      border: 1px solid #193757;
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 16px 28px;
+      margin-bottom: 32px;
+    }
+
+    .brand-logo-wrap img {
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .brand-tagline {
+      font-size: .97rem;
+      color: rgba(255, 255, 255, .7);
+      margin-bottom: 48px;
+    }
+
+    .brand-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .brand-stat {
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 14px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .brand-stat h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .brand-stat p {
+      font-size: .78rem;
+      color: rgba(255, 255, 255, .6);
+      margin-top: 4px;
+    }
+
+    .brand-divider {
+      width: 48px;
+      height: 3px;
+      background: rgba(255, 255, 255, .2);
+      border-radius: 2px;
+      margin: 40px auto;
+    }
+
+    .brand-quote {
+      font-size: .92rem;
+      color: rgba(255, 255, 255, .65);
+      font-style: italic;
+      line-height: 1.6;
+      max-width: 280px;
+    }
+
+    /* ─── RIGHT LOGIN PANEL ─── */
+    .login-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 56px;
+      background: var(--beige);
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .login-header {
+      margin-bottom: 36px;
+    }
+
+    .login-header .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: .85rem;
+      text-decoration: none;
+      margin-bottom: 28px;
+      transition: color .2s;
+    }
+
+    .login-header .back-link:hover {
+      color: var(--blue);
+    }
+
+    .login-header h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
+      letter-spacing: -.02em;
+    }
+
+    .login-header p {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .view {
+      display: none;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    /* Form elements */
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 7px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-wrap i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .input-wrap input {
+      width: 100%;
+      padding: 14px 14px 14px 42px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      font-size: .95rem;
+      font-family: inherit;
+      color: var(--text);
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .input-wrap input:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(26, 60, 107, .1);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      margin-top: 8px;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+
+    .submit-btn:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26, 60, 107, .25);
+    }
+
+    .submit-btn:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .form-footer a,
+    .link-btn {
+      color: var(--blue);
+      font-size: .85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      background: none;
+      border: none;
+      font-family: inherit;
+      padding: 0;
+      transition: opacity .2s;
+    }
+
+    .form-footer a:hover,
+    .link-btn:hover {
+      opacity: .7;
+    }
+
+    .alert {
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: .875rem;
+      margin-bottom: 18px;
+      display: none;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .alert.error {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+
+    .alert.success {
+      background: #f0fdf4;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+    }
+
+    .alert.show {
+      display: flex;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-panel {
+        display: none;
+      }
+
+      .login-panel {
+        padding: 40px 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ─── BRAND PANEL ─── -->
+  <div class="brand-panel">
+    <div class="brand-content">
+      <div class="brand-logo-wrap">
+        <img src="logo.png" alt="SREE AMMAN PACKERS Logo">
+      </div>
+      <div class="brand-name">SREE AMMAN PACKERS</div>
+      <div class="brand-tagline">Premium Cotton Box Manufacturer & Exporter</div>
+      <div class="brand-stats">
+        <div class="brand-stat">
+          <h3>500+</h3>
+          <p>Happy Clients</p>
+        </div>
+        <div class="brand-stat">
+          <h3>15+</h3>
+          <p>Years Experience</p>
+        </div>
+        <div class="brand-stat">
+          <h3>5 Ply</h3>
+          <p>Quality Assured</p>
+        </div>
+        <div class="brand-stat">
+          <h3>PAN</h3>
+          <p>India Delivery</p>
+        </div>
+      </div>
+      <div class="brand-divider"></div>
+      <p class="brand-quote">"Quality in every corrugated layer — trusted by leading manufacturers across India."</p>
+    </div>
+  </div>
+
+  <!-- ─── LOGIN PANEL ─── -->
+  <div class="login-panel">
+    <div class="login-card">
+
+      <!-- VIEW: Login -->
+      <div class="view active" id="viewLogin">
+        <div class="login-header">
+          <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Website</a>
+          <h2>Admin Login</h2>
+          <p>Sign in to manage your dashboard</p>
+        </div>
+        <div class="alert error" id="loginErr"><i class="fa-solid fa-circle-exclamation"></i> <span
+            id="loginErrMsg"></span></div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="loginEmail" placeholder="admin@sapackers.com" autocomplete="email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="loginPw" placeholder="Enter your password" autocomplete="current-password">
+          </div>
+        </div>
+        <button class="submit-btn" id="loginBtn" onclick="doLogin()">
+          <i class="fa-solid fa-right-to-bracket"></i> Sign In
+        </button>
+        <div class="form-footer">
+          <button class="link-btn" onclick="switchTo('viewForgot')">Forgot password?</button>
+        </div>
+      </div>
+
+      <!-- VIEW: Forgot Password -->
+      <div class="view" id="viewForgot">
+        <div class="login-header">
+          <button class="back-link" onclick="switchTo('viewLogin')"
+            style="background:none;border:none;padding:0;cursor:pointer;font-family:inherit;">
+            <i class="fa-solid fa-arrow-left"></i> Back to Login
+          </button>
+          <h2>Reset Password</h2>
+          <p>We'll send a reset code to your email</p>
+        </div>
+        <div class="alert error" id="forgotErr"><i class="fa-solid fa-circle-exclamation"></i> <span
+            id="forgotErrMsg"></span></div>
+        <div class="alert success" id="forgotOk"><i class="fa-solid fa-circle-check"></i> <span id="forgotOkMsg"></span>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="forgotEmail" placeholder="Your admin email">
+          </div>
+        </div>
+        <button class="submit-btn" onclick="doForgot()"><i class="fa-solid fa-paper-plane"></i> Send Reset Code</button>
+        <div class="form-footer">
+          <button class="link-btn" onclick="switchTo('viewReset')">Already have a code?</button>
+        </div>
+      </div>
+
+      <!-- VIEW: Reset Password -->
+      <div class="view" id="viewReset">
+        <div class="login-header">
+          <button class="back-link" onclick="switchTo('viewForgot')"
+            style="background:none;border:none;padding:0;cursor:pointer;font-family:inherit;">
+            <i class="fa-solid fa-arrow-left"></i> Back
+          </button>
+          <h2>Set New Password</h2>
+          <p>Enter the code you received and a new password</p>
+        </div>
+        <div class="alert error" id="resetErr"><i class="fa-solid fa-circle-exclamation"></i> <span
+            id="resetErrMsg"></span></div>
+        <div class="alert success" id="resetOk"><i class="fa-solid fa-circle-check"></i> Password updated! Redirecting…
+        </div>
+        <div class="form-group">
+          <label>Reset Code</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-key"></i>
+            <input type="text" id="resetToken" placeholder="Enter your reset code"
+              style="text-transform:uppercase;letter-spacing:.1em">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>New Password</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="resetPw" placeholder="New password (min 6 chars)">
+          </div>
+        </div>
+        <button class="submit-btn" onclick="doReset()"><i class="fa-solid fa-shield-check"></i> Reset Password</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const API = '';
+    if (localStorage.getItem('admin_token')) window.location.href = 'admin.html';
+
+    function switchTo(id) {
+      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function showErr(id, msg) {
+      const el = document.getElementById(id);
+      document.getElementById(id + 'Msg').textContent = msg;
+      el.classList.add('show');
+    }
+    function hideErr(id) { document.getElementById(id).classList.remove('show'); }
+
+    document.getElementById('loginPw').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+
+    async function doLogin() {
+      hideErr('loginErr');
+      const email = document.getElementById('loginEmail').value.trim();
+      const pw = document.getElementById('loginPw').value;
+      if (!email || !pw) return showErr('loginErr', 'Please fill in both fields.');
+      const btn = document.getElementById('loginBtn');
+      btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Signing in…';
+      try {
+        const r = await fetch(`api.php?action=auth_login`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password: pw })
+        });
+        const d = await r.json();
+        if (!r.ok) { showErr('loginErr', d.error || 'Login failed.'); }
+        else {
+          localStorage.setItem('admin_token', d.token);
+          localStorage.setItem('admin_name', d.name);
+          localStorage.setItem('admin_email', d.email);
+          localStorage.setItem('admin_role', d.role);
+          window.location.href = 'admin.html';
+        }
+      } catch { showErr('loginErr', 'Cannot connect to server. Is the backend running?'); }
+      btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> Sign In';
+    }
+
+    async function doForgot() {
+      hideErr('forgotErr');
+      document.getElementById('forgotOk').classList.remove('show');
+      const email = document.getElementById('forgotEmail').value.trim();
+      if (!email) return showErr('forgotErr', 'Please enter your email.');
+      const r = await fetch(`api.php?action=auth_forgot_password`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      const d = await r.json();
+      if (!r.ok) showErr('forgotErr', d.error || 'Error.');
+      else {
+        document.getElementById('forgotOkMsg').textContent = d.message || 'Reset code sent.';
+        document.getElementById('forgotOk').classList.add('show');
+      }
+    }
+
+    async function doReset() {
+      hideErr('resetErr');
+      document.getElementById('resetOk').classList.remove('show');
+      const token = document.getElementById('resetToken').value.trim();
+      const pw = document.getElementById('resetPw').value;
+      if (!token || !pw) return showErr('resetErr', 'Please fill all fields.');
+      if (pw.length < 6) return showErr('resetErr', 'Password must be at least 6 characters.');
+      const r = await fetch(`api.php?action=auth_reset_password`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token, new_password: pw })
+      });
+      const d = await r.json();
+      if (!r.ok) showErr('resetErr', d.error || 'Reset failed.');
+      else { document.getElementById('resetOk').classList.add('show'); setTimeout(() => switchTo('viewLogin'), 2000); }
+    }
+  </script>
+</body>
+
+</html>

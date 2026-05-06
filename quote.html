@@ -1,0 +1,686 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Request a bulk quote from SREE AMMAN PACKERS — fill in your details and we'll get back to you promptly.">
+  <title>Request a Quote — SREE AMMAN PACKERS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ===== QUOTE PAGE STYLES ===== */
+    .quote-hero {
+      background: linear-gradient(135deg, var(--dark-blue) 0%, #1a3a6b 100%);
+      color: #fff;
+      padding: 120px 0 60px;
+      text-align: center;
+    }
+
+    .quote-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .quote-hero p {
+      font-size: 1.1rem;
+      opacity: .85;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .quote-main {
+      padding: 60px 0 80px;
+      background: var(--bg-light);
+    }
+
+    .quote-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .quote-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---- Form Card ---- */
+    .quote-form-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 32px rgba(0, 0, 0, .08);
+      padding: 40px;
+    }
+
+    .quote-form-card h2 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      color: var(--dark-blue);
+    }
+
+    .quote-form-card .subtitle {
+      color: var(--text-muted);
+      font-size: .93rem;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: .88rem;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .form-group label span.req {
+      color: #e53e3e;
+      margin-left: 2px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid #dde3ed;
+      border-radius: var(--radius-sm);
+      font-size: .95rem;
+      font-family: inherit;
+      color: var(--text-dark);
+      background: #fafbfd;
+      transition: border-color .2s, box-shadow .2s;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--dark-blue);
+      box-shadow: 0 0 0 3px rgba(26, 60, 107, .1);
+      background: #fff;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .form-row-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-field-icon {
+      position: relative;
+    }
+
+    .form-field-icon i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: .9rem;
+    }
+
+    .form-field-icon input,
+    .form-field-icon select {
+      padding-left: 40px;
+    }
+
+    .quote-submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--dark-blue), #2563eb);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .quote-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26, 60, 107, .3);
+    }
+
+    .quote-submit-btn:disabled {
+      opacity: .7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* ---- Success State ---- */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+
+    .success-msg .success-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2.2rem;
+      color: #fff;
+      animation: popIn .4s ease;
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0);
+      }
+
+      80% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .success-msg h3 {
+      font-size: 1.6rem;
+      color: var(--dark-blue);
+      margin-bottom: 10px;
+    }
+
+    .success-msg p {
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .success-msg .quote-id {
+      display: inline-block;
+      background: #f0f4ff;
+      color: var(--dark-blue);
+      border: 1.5px solid #c7d7f8;
+      border-radius: 8px;
+      padding: 8px 20px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin: 16px 0 24px;
+    }
+
+    /* ---- Cart Summary Sidebar ---- */
+    .quote-summary-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 32px rgba(0, 0, 0, .08);
+      padding: 32px 28px;
+      position: sticky;
+      top: 20px;
+    }
+
+    .quote-summary-card h3 {
+      font-size: 1.1rem;
+      color: var(--dark-blue);
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1.5px solid #eef0f6;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #f4f5f8;
+      gap: 12px;
+    }
+
+    .summary-item:last-child {
+      border-bottom: none;
+    }
+
+    .summary-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .summary-item-name {
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .summary-item-meta {
+      font-size: .8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .summary-item-price {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+      white-space: nowrap;
+    }
+
+    .summary-total {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 2px solid #eef0f6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .summary-total span:first-child {
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .summary-total span:last-child {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--dark-blue);
+    }
+
+    .summary-empty {
+      text-align: center;
+      padding: 30px 0;
+      color: var(--text-muted);
+    }
+
+    .summary-empty i {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 10px;
+      opacity: .4;
+    }
+
+    .summary-note {
+      margin-top: 20px;
+      background: #f0f7ff;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: .82rem;
+      color: #3b5bdb;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .summary-note i {
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ---- Back link ---- */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255, 255, 255, .8);
+      font-size: .9rem;
+      margin-bottom: 20px;
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .back-link:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="SA Packers Logo" class="logo-img">
+        SREE AMMAN PACKERS
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="sourcing.html">Sourcing</a>
+        <a href="process.html">Process</a>
+        <a href="quote-track.html">Track Quote</a>
+      </div>
+      <div class="nav-actions">
+        <button class="cart-btn" aria-label="Open cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge hidden">0</span>
+        </button>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="quote-hero">
+    <div class="container">
+      <a href="products.html" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Products
+      </a>
+      <h1><i class="fa-solid fa-file-invoice"></i> Request a Quote</h1>
+      <p>Fill in your details below. Our team will review your order and get back within 24 hours.</p>
+    </div>
+  </section>
+
+  <!-- ===== MAIN ===== -->
+  <section class="quote-main">
+    <div class="container">
+      <div class="quote-grid">
+
+        <!-- LEFT: Form -->
+        <div class="quote-form-card">
+          <!-- Form View -->
+          <div id="formView">
+            <h2><i class="fa-solid fa-user-pen" style="color:var(--dark-blue);margin-right:8px;"></i>Your Details</h2>
+            <p class="subtitle">All fields marked <span style="color:#e53e3e;">*</span> are required.</p>
+
+            <form id="quoteForm" novalidate>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="qName">Full Name <span class="req">*</span></label>
+                  <div class="form-field-icon">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="qName" name="name" placeholder="e.g. Ramesh Kumar" required
+                      autocomplete="name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="qCompany">Company / Business Name</label>
+                  <div class="form-field-icon">
+                    <i class="fa-solid fa-building"></i>
+                    <input type="text" id="qCompany" name="company" placeholder="e.g. ABC Traders"
+                      autocomplete="organization">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="qEmail">Email Address <span class="req">*</span></label>
+                  <div class="form-field-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="qEmail" name="email" placeholder="you@example.com" required
+                      autocomplete="email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="qPhone">Phone Number <span class="req">*</span></label>
+                  <div class="form-field-icon">
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="tel" id="qPhone" name="phone" placeholder="+91 98765 43210" required
+                      autocomplete="tel">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="qCity">City / Location <span class="req">*</span></label>
+                <div class="form-field-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <input type="text" id="qCity" name="city" placeholder="e.g. Chennai, Tamil Nadu" required
+                    autocomplete="address-level2">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="qDelivery">Expected Delivery Timeline<span class="req">*</span></label>
+                <div class="form-field-icon">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  <select id="qDelivery" name="delivery_timeline">
+                    <option value="">Select timeline</option>
+                    <option value="ASAP (1-2 weeks)">ASAP (1-2 weeks)</option>
+                    <option value="1 month">Within 1 month</option>
+                    <option value="2-3 months">2-3 months</option>
+                    <option value="Flexible">Flexible / No rush</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="qNotes">Additional Notes / Special Requirements</label>
+                <textarea id="qNotes" name="notes"
+                  placeholder="Custom dimensions, printing details, delivery address, packaging specs…"></textarea>
+              </div>
+
+              <button type="submit" class="quote-submit-btn" id="submitBtn">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span id="submitLabel">Submit Quote Request</span>
+              </button>
+
+              <p id="formError" style="color:#e53e3e;font-size:.87rem;margin-top:12px;display:none;"></p>
+            </form>
+          </div>
+
+          <!-- Success View -->
+          <div class="success-msg" id="successView">
+            <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+            <h3>Quote Submitted!</h3>
+            <p>Thank you! Your quote request has been received.</p>
+            <p>Our team will contact you within <strong>24 hours</strong>.</p>
+            <div class="quote-id" id="successQuoteId">Quote #—</div>
+            <p style="margin-bottom:20px;font-size:.88rem;color:var(--text-muted);">Use your Quote ID above to track
+              your request status anytime.</p>
+            <a id="trackQuoteBtn" href="quote-track.html" class="btn btn-primary"
+              style="margin-bottom:12px;display:inline-flex;width:100%;justify-content:center;">
+              <i class="fa-solid fa-magnifying-glass"></i> Track Your Quote Status
+            </a>
+            <div style="display:flex;gap:10px;justify-content:center;margin-top:4px;">
+              <a href="products.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> Products</a>
+              <a href="index.html" class="btn btn-outline">Home</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Cart Summary -->
+        <div class="quote-summary-card">
+          <h3><i class="fa-solid fa-list-check"></i> Order Summary</h3>
+          <div id="quoteSummaryItems">
+            <div class="summary-empty">
+              <i class="fa-solid fa-box-open"></i>
+              <p>Your cart is empty.<br><a href="products.html" style="color:var(--dark-blue);font-weight:600;">Browse
+                  Products →</a></p>
+            </div>
+          </div>
+          <div class="summary-note">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>Prices are estimates. Final pricing will be confirmed by our team after reviewing your
+              requirements.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">© 2026 SREE AMMAN PACKERS. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Cart sidebar (required by script.js) -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2><i class="fa-solid fa-cart-shopping"></i> Your Cart</h2>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹0.00</span>
+      </div>
+      <button class="btn btn-primary" onclick="window.location.href='quote.html'">Request Quote →</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // ==============================
+    // QUOTE PAGE LOGIC
+    // ==============================
+    (function () {
+      const API = 'api.php?action=quotes_submit';
+
+      // ---- Render order summary from cart ----
+      function renderSummary() {
+        const container = document.getElementById('quoteSummaryItems');
+        if (!cart || cart.items.length === 0) return; // Keep empty state
+
+        let html = '';
+        let total = 0;
+
+        cart.items.forEach(item => {
+          const p = products.find(pr => pr.id === item.id);
+          if (!p) return;
+          const price = cart.getPrice(p, item.qty);
+          const lineTotal = price * item.qty;
+          total += lineTotal;
+          html += `
+            <div class="summary-item">
+              <div class="summary-item-info">
+                <div class="summary-item-name">${p.name}</div>
+                <div class="summary-item-meta">${p.ply_type} · Qty: ${item.qty} · ₹${price}/pc</div>
+              </div>
+              <div class="summary-item-price">₹${lineTotal.toFixed(2)}</div>
+            </div>`;
+        });
+
+        html += `
+          <div class="summary-total">
+            <span>Estimated Total</span>
+            <span>₹${total.toFixed(2)}</span>
+          </div>`;
+
+        container.innerHTML = html;
+      }
+
+      // ---- Wait for products to load (fetchProducts is async) ----
+      function waitForProducts(cb, tries = 0) {
+        if (products.length > 0 || tries > 20) { cb(); return; }
+        setTimeout(() => waitForProducts(cb, tries + 1), 150);
+      }
+
+      waitForProducts(renderSummary);
+
+      // ---- Form submission ----
+      const form = document.getElementById('quoteForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const submitLabel = document.getElementById('submitLabel');
+      const formError = document.getElementById('formError');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        formError.style.display = 'none';
+
+        // Validate
+        const name = document.getElementById('qName').value.trim();
+        const email = document.getElementById('qEmail').value.trim();
+        const phone = document.getElementById('qPhone').value.trim();
+        const city = document.getElementById('qCity').value.trim();
+        const company = document.getElementById('qCompany').value.trim();
+        const delivery = document.getElementById('qDelivery').value;
+        const notes = document.getElementById('qNotes').value.trim();
+
+        if (!name || !email || !phone || !city) {
+          formError.textContent = 'Please fill in all required fields.';
+          formError.style.display = 'block';
+          return;
+        }
+
+        // Check cart
+        if (!cart || cart.items.length === 0) {
+          formError.textContent = 'Your cart is empty. Please add products before requesting a quote.';
+          formError.style.display = 'block';
+          return;
+        }
+
+        // Build payload
+        const payload = {
+          name,
+          email,
+          phone,
+          company,
+          city,
+          delivery_timeline: delivery,
+          notes,
+          items: cart.items.map(i => ({ product_id: i.id, quantity: i.qty }))
+        };
+
+        // Submit
+        submitBtn.disabled = true;
+        submitLabel.textContent = 'Submitting…';
+
+        try {
+          const res = await fetch(API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json();
+
+          if (res.ok) {
+            // Clear cart and show success
+            cart.items = [];
+            cart.save();
+            document.getElementById('successQuoteId').textContent = 'Quote #' + data.quote_id;
+            document.getElementById('trackQuoteBtn').href = 'quote-track.html?id=' + data.quote_id;
+            document.getElementById('formView').style.display = 'none';
+            document.getElementById('successView').style.display = 'block';
+          } else {
+            throw new Error(data.error || 'Submission failed.');
+          }
+        } catch (err) {
+          formError.textContent = err.message.includes('fetch')
+            ? 'Cannot connect to server. Make sure XAMPP Apache & MySQL are running.'
+            : err.message;
+          formError.style.display = 'block';
+          submitBtn.disabled = false;
+          submitLabel.textContent = 'Submit Quote Request';
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>

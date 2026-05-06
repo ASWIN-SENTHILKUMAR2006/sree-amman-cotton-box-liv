@@ -1,0 +1,559 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="SREE AMMAN PACKERS — Premium cotton-based corrugated packaging solutions. Strong, sustainable, and customizable boxes for every industry.">
+  <title>SREE AMMAN PACKERS — Premium Corrugated Packaging</title>
+  <link rel="icon" type="image/x-icon" href="images/logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="SA Packers Logo" class="logo-img">
+        SREE AMMAN PACKERS
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="products.html">Products</a>
+        <a href="sourcing.html">Sourcing</a>
+        <a href="process.html">Process</a>
+        <a href="quote-track.html">Track Quote</a>
+      </div>
+      <div class="nav-actions">
+        <button class="cart-btn" aria-label="Open cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge hidden">0</span>
+        </button>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <a href="admin-login.html">
+            🎫
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fa-solid fa-industry"></i> Trusted by 500+ Businesses</div>
+        <h1>Premium Cotton-Based <span>Corrugated Packaging</span> Solutions</h1>
+        <p>Strong. Sustainable. Customizable. We manufacture high-quality corrugated boxes from pure cotton-based board,
+          delivering superior strength and eco-friendly packaging for every industry.</p>
+        <div class="hero-buttons">
+          <a href="products.html" class="btn btn-primary">View Products →</a>
+          <a href="#contact-form" class="btn btn-outline">Get Quote</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <h3>500+</h3>
+            <p>Happy Clients</p>
+          </div>
+          <div class="hero-stat">
+            <h3>5M+</h3>
+            <p>Boxes Delivered</p>
+          </div>
+          <div class="hero-stat">
+            <h3>15+</h3>
+            <p>Years Experience</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-wrapper">
+          <img src="images/machine-main.jpg" alt="Cotton Box Manufacturing Machine" class="hero-img">
+          <div class="floating-tag tag-1">
+            <span class="tag-dot green"></span> Eco-Certified
+          </div>
+          <div class="floating-tag tag-2">
+            <span class="tag-dot blue"></span> ISO 9001:2015
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image animate-in">
+          <img src="images/machine-image.jpg" alt="Our Manufacturing Facility"
+            style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg);">
+        </div>
+        <div class="about-content animate-in">
+          <h2>India's Leading Cotton-Based Box Manufacturer</h2>
+          <p>SREE AMMAN PACKERS is a pioneering manufacturer specializing in cotton-based corrugated packaging. With
+            over
+            15 years of expertise, we source Grade A cotton directly from farmers and transform it into premium
+            corrugated board that outperforms traditional kraft.</p>
+          <p>Our state-of-the-art facility produces 3-ply, 5-ply, and 7-ply boxes in standard and custom sizes, serving
+            industries from e-commerce to heavy machinery.</p>
+          <div class="about-features">
+            <div class="about-feature"><span class="check">✓</span> ISO 9001:2015 Certified</div>
+            <div class="about-feature"><span class="check">✓</span> 100% Cotton-Based</div>
+            <div class="about-feature"><span class="check">✓</span> Custom Branding</div>
+            <div class="about-feature"><span class="check">✓</span> Pan-India Delivery</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3D BOX VIEWER ===== -->
+  <section class="section section-alt" id="box3d">
+    <div class="container">
+      <h2 class="section-title">Interactive 3D Box Preview</h2>
+      <p class="section-subtitle">Drag to rotate · Scroll to zoom · Experience our packaging in 360°</p>
+      <div class="box3d-wrapper">
+        <div class="box3d-stage" id="box3dStage">
+          <div class="box3d-scene">
+            <div class="box3d-cube" id="box3dCube">
+              <!-- Front -->
+              <div class="box3d-face box3d-front">
+                <div class="face-content">
+                  <div class="face-logo"><img src="logo.png" alt="SA Packers" style="width:48px;height:48px;"></div>
+                  <div class="face-brand">SREE AMMAN PACKERS</div>
+                  <div class="face-tagline">Premium Corrugated Packaging</div>
+                  <div class="face-detail">Cotton-Based · Eco-Friendly</div>
+                </div>
+                <div class="face-flute"></div>
+              </div>
+              <!-- Back -->
+              <div class="box3d-face box3d-back">
+                <div class="face-content">
+                  <div class="face-logo"><i class="fa-solid fa-industry"></i></div>
+                  <div class="face-brand">SREE AMMAN PACKERS</div>
+                  <div class="face-tagline">Made in India</div>
+                  <div class="face-detail">P.Velur, Tamil Nadu</div>
+                </div>
+                <div class="face-flute"></div>
+              </div>
+              <!-- Left -->
+              <div class="box3d-face box3d-left">
+                <div class="face-content">
+                  <div class="face-specs">
+                    <div class="spec-item"><span>Ply</span><strong>3 / 5 / 7</strong></div>
+                    <div class="spec-item"><span>Load</span><strong>Up to 40kg</strong></div>
+                    <div class="spec-item"><span>Material</span><strong>100% Cotton</strong></div>
+                  </div>
+                </div>
+                <div class="face-flute"></div>
+              </div>
+              <!-- Right -->
+              <div class="box3d-face box3d-right">
+                <div class="face-content">
+                  <div class="face-specs">
+                    <div class="spec-item"><span>Custom</span><strong>Yes ✓</strong></div>
+                    <div class="spec-item"><span>MOQ</span><strong>25 pcs</strong></div>
+                    <div class="spec-item"><span>Eco</span><strong><i class="fa-solid fa-recycle"></i> 100%</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="face-flute"></div>
+              </div>
+              <!-- Top -->
+              <div class="box3d-face box3d-top">
+                <div class="face-content">
+                  <div class="face-logo"><img src="logo.png" alt="SA Packers" style="width:36px;height:36px;"></div>
+                  <div class="face-brand" style="font-size:.85rem;">SREE AMMAN PACKERS</div>
+                  <div class="face-stamp">✓ ISO 9001:2015</div>
+                </div>
+              </div>
+              <!-- Bottom -->
+              <div class="box3d-face box3d-bottom">
+                <div class="face-content">
+                  <div class="face-detail">100% Recyclable · Biodegradable</div>
+                  <div class="face-stamp" style="margin-top:8px;"><i class="fa-solid fa-recycle"></i> ECO CERTIFIED
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="box3d-hint"><i class="fa-solid fa-computer-mouse"></i> Click & drag to rotate · Scroll to zoom</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Why Choose Us</h2>
+      <p class="section-subtitle">Four pillars that make SREE AMMAN PACKERS the preferred choice for businesses
+        nationwide
+      </p>
+      <div class="why-grid">
+        <div class="why-card animate-in">
+          <div class="icon"><i class="fa-solid fa-seedling"></i></div>
+          <h3>Direct Cotton Sourcing</h3>
+          <p>We procure Grade A cotton directly from farmers, ensuring the highest quality raw material and fair trade
+            practices.</p>
+        </div>
+        <div class="why-card animate-in">
+          <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>High Strength Ply</h3>
+          <p>Our cotton-based corrugated board delivers 30% more burst strength than standard kraft, protecting your
+            products.</p>
+        </div>
+        <div class="why-card animate-in">
+          <div class="icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+          <h3>Bulk Pricing</h3>
+          <p>Competitive volume-based pricing with up to 50% savings on large orders. No hidden costs, transparent
+            tiers.</p>
+        </div>
+        <div class="why-card animate-in">
+          <div class="icon"><i class="fa-solid fa-ruler-combined"></i></div>
+          <h3>Custom Sizes</h3>
+          <p>Any dimension, any ply type, any print — we manufacture boxes tailored exactly to your product
+            specifications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MANUFACTURING PROCESS PREVIEW ===== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Our Manufacturing Process</h2>
+      <p class="section-subtitle">From raw cotton to finished box — 7 precision-controlled steps ensure unmatched
+        quality</p>
+      <div class="process-grid">
+        <div class="process-step animate-in">
+          <div class="step-num">1</div>
+          <div class="step-label">Raw Cotton<br>Collection</div>
+        </div>
+        <div class="process-step animate-in">
+          <div class="step-num">2</div>
+          <div class="step-label">Cleaning &<br>Sorting</div>
+        </div>
+        <div class="process-step animate-in">
+          <div class="step-num">3</div>
+          <div class="step-label">Corrugation<br>Layer</div>
+        </div>
+        <div class="process-step animate-in">
+          <div class="step-num">4</div>
+          <div class="step-label">Box<br>Structuring</div>
+        </div>
+        <div class="process-step animate-in">
+          <div class="step-num">5</div>
+          <div class="step-label">Compression<br>Testing</div>
+        </div>
+        <div class="process-step animate-in">
+          <div class="step-num">6</div>
+          <div class="step-label">Quality<br>Inspection</div>
+        </div>
+        <div class="process-step animate-in">
+          <div class="step-num">7</div>
+          <div class="step-label">Packaging &<br>Dispatch</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <a href="process.html" class="btn btn-outline">View Full Process →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SUSTAINABILITY ===== -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Sustainability Commitment</h2>
+      <p class="section-subtitle">Every box we make contributes to a greener future</p>
+      <div class="sustain-grid">
+        <div class="sustain-card animate-in">
+          <div class="icon"><i class="fa-solid fa-recycle"></i></div>
+          <div>
+            <h3>100% Recyclable</h3>
+            <p>All our boxes are fully recyclable and biodegradable, made from natural cotton fibers without harmful
+              chemicals.</p>
+          </div>
+        </div>
+        <div class="sustain-card animate-in">
+          <div class="icon"><i class="fa-solid fa-leaf"></i></div>
+          <div>
+            <h3>Sustainable Sourcing</h3>
+            <p>We partner with local farmers practicing sustainable agriculture, ensuring fair wages and eco-friendly
+              cultivation.</p>
+          </div>
+        </div>
+        <div class="sustain-card animate-in">
+          <div class="icon"><i class="fa-solid fa-bolt"></i></div>
+          <div>
+            <h3>Energy Efficient</h3>
+            <p>Our manufacturing facility uses solar-powered systems and water recycling to minimize our carbon
+              footprint.</p>
+          </div>
+        </div>
+        <div class="sustain-card animate-in">
+          <div class="icon"><i class="fa-solid fa-globe"></i></div>
+          <div>
+            <h3>Zero Waste Goal</h3>
+            <p>Cotton waste is repurposed into secondary products. We are on track to achieve zero landfill waste by
+              2027.</p>
+          </div>
+        </div>
+        <div class="sustain-card animate-in">
+          <div class="icon"><i class="fa-solid fa-droplet"></i></div>
+          <div>
+            <h3>Water Conservation</h3>
+            <p>Advanced water recycling systems reduce consumption by 60% compared to traditional corrugated board
+              manufacturing.</p>
+          </div>
+        </div>
+        <div class="sustain-card animate-in">
+          <div class="icon"><i class="fa-solid fa-medal"></i></div>
+          <div>
+            <h3>Certified Green</h3>
+            <p>FSC-certified supply chain and ISO 14001 environmental management ensures we meet the highest global
+              standards.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-subtitle">Trusted by leading brands across India</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card animate-in">
+          <div class="testimonial-stars"><i class="fa-solid fa-star" style="color:#f59e0b;"></i><i
+              class="fa-solid fa-star" style="color:#f59e0b;"></i><i class="fa-solid fa-star"
+              style="color:#f59e0b;"></i><i class="fa-solid fa-star" style="color:#f59e0b;"></i><i
+              class="fa-solid fa-star" style="color:#f59e0b;"></i></div>
+          <blockquote>"SREE AMMAN PACKERS has been our packaging partner for 3 years. The quality is consistently
+            excellent, and their cotton-based boxes are noticeably stronger than competitors."</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RK</div>
+            <div>
+              <h4>Rajesh Kumar</h4>
+              <p>MD, TechShip Logistics</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card animate-in">
+          <div class="testimonial-stars"><i class="fa-solid fa-star" style="color:#f59e0b;"></i><i
+              class="fa-solid fa-star" style="color:#f59e0b;"></i><i class="fa-solid fa-star"
+              style="color:#f59e0b;"></i><i class="fa-solid fa-star" style="color:#f59e0b;"></i><i
+              class="fa-solid fa-star" style="color:#f59e0b;"></i></div>
+          <blockquote>"Their custom printed boxes transformed our brand presence. Customers now recognize our packaging
+            instantly. Prompt delivery and competitive pricing — highly recommended!"</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">PS</div>
+            <div>
+              <h4>Priya Sharma</h4>
+              <p>Founder, GreenBasket E-com</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card animate-in">
+          <div class="testimonial-stars"><i class="fa-solid fa-star" style="color:#f59e0b;"></i><i
+              class="fa-solid fa-star" style="color:#f59e0b;"></i><i class="fa-solid fa-star"
+              style="color:#f59e0b;"></i><i class="fa-solid fa-star" style="color:#f59e0b;"></i><i
+              class="fa-solid fa-star" style="color:#f59e0b;"></i></div>
+          <blockquote>"We switched to their 7-ply boxes for our machinery parts and haven't had a single damage claim
+            since. The load capacity is exceptional. Great customer service too."</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AM</div>
+            <div>
+              <h4>Arun Mehta</h4>
+              <p>VP Ops, IndoMech Industries</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FACTORY GALLERY ===== -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Inside Our Factory</h2>
+      <p class="section-subtitle">A glimpse into our state-of-the-art manufacturing facility</p>
+      <div class="factory-gallery">
+        <div class="gallery-item gallery-large animate-in">
+          <img src="images/machine-main.jpg" alt="Main corrugation machine" loading="lazy">
+          <div class="gallery-caption">Main Corrugation Machine</div>
+        </div>
+        <div class="gallery-item animate-in">
+          <img src="images/machine-2.jpg" alt="Secondary processing unit" loading="lazy">
+          <div class="gallery-caption">Processing Unit</div>
+        </div>
+        <div class="gallery-item animate-in">
+          <img src="images/working-employee.jpg" alt="Skilled workers" loading="lazy">
+          <div class="gallery-caption">Our Skilled Team</div>
+        </div>
+        <div class="gallery-item animate-in">
+          <img src="images/jump-machine.jpg" alt="Jump machine" loading="lazy">
+          <div class="gallery-caption">Jump Machine</div>
+        </div>
+        <div class="gallery-item animate-in">
+          <img src="images/storage-unit.jpg" alt="Storage warehouse" loading="lazy">
+          <div class="gallery-caption">Storage Warehouse</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT FORM ===== -->
+  <section class="section section-alt" id="contact-form">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">Have a question or need a custom quote? Send us a message and we'll reply promptly.
+      </p>
+
+      <div class="contact-wrapper animate-in">
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+          <input type="hidden" name="access_key" value="20209c62-f7da-43d3-9012-ad6d4494caac">
+          <input type="hidden" name="subject" value="New Inquiry from SREE AMMAN PACKERS Website">
+          <input type="hidden" name="from_name" value="SREE AMMAN PACKERS Notifications">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message / Requirements</label>
+            <textarea id="message" name="message" rows="5" required
+              placeholder="Tell us about what you need..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary submit-btn">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <img src="logo.png" alt="SA Packers Logo" class="logo-img">
+            SREE AMMAN PACKERS
+          </div>
+          <p>Premium cotton-based corrugated packaging solutions for businesses across India. Strong, sustainable, and
+            fully customizable.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="sourcing.html">Sourcing</a></li>
+            <li><a href="process.html">Process</a>
+              <a href="quote-track.html">Track Quote</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Products</h3>
+          <ul>
+            <li><a href="products.html">3 Ply Boxes</a></li>
+            <li><a href="products.html">5 Ply Boxes</a></li>
+            <li><a href="products.html">7 Ply Boxes</a></li>
+            <li><a href="products.html">Custom Printed</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <ul class="footer-contact">
+            <li>
+              <span class="icon-circle"><i class="fa-solid fa-location-dot"></i></span>
+              297 (1), V.O.C. Nagar, Nalliyampalayam, P.Velur (Po.),<br>
+              Paramathi Velur (Tk.), Namakkal (Dt.), Pin : 638 182.
+            </li>
+            <li>
+              <span class="icon-circle"><i class="fa-solid fa-envelope"></i></span>
+              sapackers@gmail.com
+            </li>
+            <li>
+              <span class="icon-circle"><i class="fa-solid fa-phone"></i></span>
+              04268 - 290540
+            </li>
+            <li>
+              <span class="icon-circle"><i class="fa-solid fa-building"></i></span>
+              GSTIN: 33ABYFS4334A1Z6
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 SREE AMMAN PACKERS. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== CART SIDEBAR ===== -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2><i class="fa-solid fa-cart-shopping"></i> Your Cart</h2>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹0.00</span>
+      </div>
+      <button class="btn btn-primary" onclick="window.location.href='quote.html'">Request Quote →</button>
+    </div>
+  </div>
+
+  <!-- ===== CHATBOT ===== -->
+  <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open chat"><i
+      class="fa-solid fa-comment-dots"></i></button>
+  <div class="chatbot-window" id="chatbotWindow">
+    <div class="chatbot-header">
+      <h3><i class="fa-solid fa-comment-dots"></i> SREE AMMAN PACKERS Assistant</h3>
+      <button class="chatbot-header-close" id="chatbotClose">✕</button>
+    </div>
+    <div class="chatbot-messages" id="chatbotMessages">
+      <div class="chat-message bot">Welcome! I'm your packaging assistant. Ask me about box sizes, ply types,
+        pricing, or custom branding.</div>
+    </div>
+    <div class="chatbot-suggestions" id="chatbotSuggestions">
+      <button>What ply type do I need?</button>
+      <button>Show me prices</button>
+      <button>Custom branding</button>
+      <button>12×10×8 box</button>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chatbotInput" placeholder="Type your question...">
+      <button id="chatbotSend">Send</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

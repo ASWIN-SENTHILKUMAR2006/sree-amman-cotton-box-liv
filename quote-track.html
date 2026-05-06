@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Track your quote request status in real-time with SREE AMMAN PACKERS. Enter your Quote ID to instantly view your order status.">
+  <title>Track Your Quote — SREE AMMAN PACKERS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ─── PAGE BASE ─── */
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    /* ─── HERO ─── */
+    .tq-hero {
+      background: linear-gradient(135deg, #0a1628 0%, #0f2044 40%, #1a3c6b 80%, #1e4d8c 100%);
+      padding: 130px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tq-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(59, 130, 246, .22) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 45% at 80% 15%, rgba(99, 102, 241, .18) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 35% at 50% 10%, rgba(255, 255, 255, .04) 0%, transparent 50%);
+    }
+
+    /* Floating particles */
+    .tq-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle 2px at 15% 25%, rgba(255, 255, 255, .3) 0%, transparent 100%),
+        radial-gradient(circle 1.5px at 85% 60%, rgba(255, 255, 255, .25) 0%, transparent 100%),
+        radial-gradient(circle 2.5px at 60% 80%, rgba(99, 130, 246, .4) 0%, transparent 100%),
+        radial-gradient(circle 1px at 35% 70%, rgba(255, 255, 255, .2) 0%, transparent 100%),
+        radial-gradient(circle 2px at 75% 30%, rgba(255, 255, 255, .2) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .tq-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .tq-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .2);
+      color: rgba(255, 255, 255, .9);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: 7px 18px;
+      border-radius: 50px;
+      margin-bottom: 22px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+    }
+
+    .tq-hero-badge i {
+      color: #60a5fa;
+      font-size: .8rem;
+    }
+
+    .tq-hero h1 {
+      color: #fff;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      letter-spacing: -.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .tq-hero h1 span {
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .tq-hero-subtitle {
+      color: rgba(255, 255, 255, .65);
+      font-size: 1.05rem;
+      max-width: 480px;
+      margin: 0 auto 42px;
+      line-height: 1.7;
+    }
+
+    /* ─── SEARCH CARD ─── */
+    .tq-search-card {
+      background: rgba(255, 255, 255, .08);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: 24px;
+      padding: 28px 32px;
+      max-width: 560px;
+      margin: 0 auto;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .3);
+    }
+
+    .tq-search-label {
+      font-size: .8rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .6);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tq-search-row {
+      display: flex;
+      gap: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .3);
+    }
+
+    .tq-search-row input {
+      flex: 1;
+      padding: 17px 22px;
+      background: #fff;
+      border: none;
+      outline: none;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #1e293b;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: .04em;
+    }
+
+    .tq-search-row input::placeholder {
+      color: #94a3b8;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    .tq-search-btn {
+      padding: 0 28px;
+      background: linear-gradient(135deg, #3b82f6, #6366f1);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: .95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-family: 'Inter', sans-serif;
+      transition: opacity .2s, transform .15s;
+      white-space: nowrap;
+    }
+
+    .tq-search-btn:hover {
+      opacity: .9;
+    }
+
+    .tq-search-btn:active {
+      transform: scale(.97);
+    }
+
+    .tq-search-hint {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, .55);
+      font-size: .8rem;
+    }
+
+    .tq-search-hint i {
+      color: #60a5fa;
+    }
+
+    /* ─── RESULT AREA ─── */
+    .tq-result-area {
+      padding: 70px 0 100px;
+      background: linear-gradient(180deg, #f0f5fb 0%, #e8eef8 100%);
+      min-height: 420px;
+    }
+
+    /* Placeholder */
+    .tq-placeholder {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .tq-placeholder-icon {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e0eaff, #dde8ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, .12);
+    }
+
+    .tq-placeholder-icon i {
+      font-size: 2.4rem;
+      color: #3b82f6;
+      opacity: .7;
+    }
+
+    .tq-placeholder h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+
+    .tq-placeholder p {
+      color: #64748b;
+      font-size: .95rem;
+    }
+
+    /* ─── RESULT CARD ─── */
+    .tq-card {
+      background: #fff;
+      border-radius: 28px;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, .11), 0 4px 16px rgba(15, 23, 42, .05);
+      max-width: 780px;
+      margin: 0 auto;
+      overflow: hidden;
+      animation: tqSlideUp .5s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    @keyframes tqSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(32px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Card top band */
+    .tq-card-top {
+      background: linear-gradient(135deg, #0a1628 0%, #1a3c6b 60%, #2152a0 100%);
+      padding: 32px 36px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .tq-quote-id {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tq-quote-id-num {
+      background: rgba(255, 255, 255, .15);
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 10px;
+      padding: 5px 16px;
+      font-size: 1.35rem;
+      letter-spacing: .04em;
+    }
+
+    .tq-quote-date {
+      color: rgba(255, 255, 255, .55);
+      font-size: .82rem;
+      margin-top: 6px;
+    }
+
+    .tq-status-pill {
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      border: 2px solid rgba(255, 255, 255, .3);
+      backdrop-filter: blur(10px);
+      transition: transform .2s;
+    }
+
+    .tq-status-pill:hover {
+      transform: scale(1.04);
+    }
+
+    .pill-pending {
+      background: rgba(245, 158, 11, .22);
+      color: #fde68a;
+      border-color: rgba(245, 158, 11, .4);
+    }
+
+    .pill-reviewed {
+      background: rgba(59, 130, 246, .22);
+      color: #bfdbfe;
+      border-color: rgba(59, 130, 246, .4);
+    }
+
+    .pill-confirmed {
+      background: rgba(34, 197, 94, .22);
+      color: #bbf7d0;
+      border-color: rgba(34, 197, 94, .4);
+    }
+
+    .pill-rejected {
+      background: rgba(239, 68, 68, .22);
+      color: #fecaca;
+      border-color: rgba(239, 68, 68, .4);
+    }
+
+    /* Card body */
+    .tq-card-body {
+      padding: 36px 36px 32px;
+    }
+
+    /* ─── TIMELINE ─── */
+    .tq-timeline {
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .tq-timeline-track {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      right: 22px;
+      height: 4px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      z-index: 0;
+    }
+
+    .tq-timeline-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #1a3c6b, #3b82f6, #6366f1);
+      border-radius: 4px;
+      transition: width .8s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .tq-step {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tq-step-dot {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      border: 4px solid #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+      transition: all .4s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    .tq-step:hover .tq-step-dot {
+      transform: scale(1.15);
+    }
+
+    .tq-step-dot.done {
+      background: linear-gradient(135deg, #1a3c6b, #2563eb);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(26, 60, 107, .35);
+    }
+
+    .tq-step-dot.active {
+      background: linear-gradient(135deg, #3b82f6, #6366f1);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(99, 102, 241, .45);
+      animation: tqPulse 1.8s ease-in-out infinite;
+    }
+
+    .tq-step-dot.rejected {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(239, 68, 68, .4);
+    }
+
+    @keyframes tqPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 20px rgba(99, 102, 241, .45);
+      }
+
+      50% {
+        box-shadow: 0 4px 30px rgba(99, 102, 241, .75), 0 0 0 8px rgba(99, 102, 241, .12);
+      }
+    }
+
+    .tq-step-label {
+      font-size: .72rem;
+      font-weight: 700;
+      color: #94a3b8;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .tq-step-label.done {
+      color: #1a3c6b;
+    }
+
+    .tq-step-label.active {
+      color: #3b82f6;
+    }
+
+    .tq-step-label.rejected {
+      color: #dc2626;
+    }
+
+    /* ─── INFO GRID ─── */
+    .tq-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .tq-info-tile {
+      background: linear-gradient(135deg, #f8faff, #f0f5ff);
+      border: 1px solid #dde8ff;
+      border-radius: 16px;
+      padding: 16px 18px;
+      transition: transform .2s, box-shadow .2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tq-info-tile::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #1a3c6b, #3b82f6);
+      border-radius: 2px 2px 0 0;
+    }
+
+    .tq-info-tile:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(26, 60, 107, .12);
+    }
+
+    .tq-info-label {
+      font-size: .68rem;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .tq-info-label i {
+      color: #3b82f6;
+      font-size: .7rem;
+    }
+
+    .tq-info-value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.3;
+    }
+
+    /* ─── ITEMS TABLE ─── */
+    .tq-items-section {
+      margin-bottom: 28px;
+    }
+
+    .tq-items-title {
+      font-size: .78rem;
+      font-weight: 800;
+      color: #1a3c6b;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tq-items-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e2e8f0;
+    }
+
+    .tq-item-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: #f8fafc;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      transition: background .2s, transform .2s;
+      border: 1px solid transparent;
+    }
+
+    .tq-item-row:hover {
+      background: #eef3ff;
+      border-color: #dde8ff;
+      transform: translateX(4px);
+    }
+
+    .tq-item-name {
+      font-size: .9rem;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .tq-item-ply {
+      font-size: .78rem;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .tq-item-qty {
+      background: linear-gradient(135deg, #1a3c6b, #2563eb);
+      color: #fff;
+      border-radius: 8px;
+      padding: 4px 14px;
+      font-size: .8rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* ─── STATUS MESSAGE ─── */
+    .tq-status-msg {
+      border-radius: 16px;
+      padding: 20px 22px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      border-left: 4px solid;
+      margin-bottom: 28px;
+    }
+
+    .tq-status-msg i {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .tq-status-msg-text {
+      font-size: .9rem;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .sm-pending {
+      background: #fffbeb;
+      color: #92400e;
+      border-color: #f59e0b;
+    }
+
+    .sm-reviewed {
+      background: #eff6ff;
+      color: #1e40af;
+      border-color: #3b82f6;
+    }
+
+    .sm-confirmed {
+      background: #f0fdf4;
+      color: #15803d;
+      border-color: #22c55e;
+    }
+
+    .sm-rejected {
+      background: #fef2f2;
+      color: #991b1b;
+      border-color: #ef4444;
+    }
+
+    /* ─── CTA ROW ─── */
+    .tq-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-top: 8px;
+    }
+
+    .tq-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: .9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
+      text-decoration: none;
+      border: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .tq-btn-primary {
+      background: linear-gradient(135deg, #1a3c6b, #2563eb);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, .3);
+    }
+
+    .tq-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, .4);
+    }
+
+    .tq-btn-outline {
+      background: #fff;
+      color: #1a3c6b;
+      border: 2px solid #e2e8f0;
+    }
+
+    .tq-btn-outline:hover {
+      border-color: #1a3c6b;
+      transform: translateY(-2px);
+    }
+
+    /* ─── ERROR CARD ─── */
+    .tq-error-card {
+      background: #fff;
+      border-radius: 28px;
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 52px 40px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, .11);
+      border-top: 5px solid #ef4444;
+      animation: tqSlideUp .5s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .tq-error-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fee2e2, #fecaca);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .tq-error-icon i {
+      font-size: 2.2rem;
+      color: #ef4444;
+    }
+
+    .tq-error-card h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 10px;
+    }
+
+    .tq-error-card p {
+      color: #64748b;
+      font-size: .95rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    /* ─── LOADING ─── */
+    .tq-loading {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .tq-spinner {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 4px solid #e2e8f0;
+      border-top-color: #3b82f6;
+      animation: tqSpin .8s linear infinite;
+      margin: 0 auto 20px;
+    }
+
+    @keyframes tqSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .tq-loading p {
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 600px) {
+      .tq-card-top {
+        padding: 24px 22px;
+      }
+
+      .tq-card-body {
+        padding: 28px 22px 24px;
+      }
+
+      .tq-search-card {
+        padding: 22px 18px;
+        margin: 0 16px;
+      }
+
+      .tq-step-dot {
+        width: 36px;
+        height: 36px;
+        font-size: .85rem;
+      }
+
+      .tq-info-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="SA Packers Logo" class="logo-img">
+        SREE AMMAN PACKERS
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="sourcing.html">Sourcing</a>
+        <a href="process.html">Process</a>
+        <a href="quote-track.html" class="active">Track Quote</a>
+      </div>
+      <div class="nav-actions">
+        <button class="cart-btn" aria-label="Open cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge hidden">0</span>
+        </button>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="tq-hero">
+    <div class="container">
+      <div class="tq-hero-badge">
+        <i class="fa-solid fa-circle-dot"></i>
+        Live Order Tracking
+      </div>
+      <h1>Track Your <span>Quote Status</span></h1>
+      <p class="tq-hero-subtitle">Enter your Quote ID to instantly see the live status of your order request — from
+        submission to confirmation.</p>
+
+      <div class="tq-search-card">
+        <div class="tq-search-label">
+          <i class="fa-solid fa-hashtag"></i>
+          Enter Your Quote ID
+        </div>
+        <div class="tq-search-row">
+          <input type="number" id="quoteIdInput" placeholder="e.g.  42" min="1" autocomplete="off">
+          <button class="tq-search-btn" onclick="trackQuote()" id="trackBtn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Track Now
+          </button>
+        </div>
+        <div class="tq-search-hint">
+          <i class="fa-solid fa-circle-info"></i>
+          Your Quote ID was shown on screen after submitting your request
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section class="tq-result-area">
+    <div class="container">
+      <div id="resultArea">
+        <div class="tq-placeholder">
+          <div class="tq-placeholder-icon">
+            <i class="fa-solid fa-file-invoice"></i>
+          </div>
+          <h3>Ready to Track</h3>
+          <p>Enter your Quote ID above to view your order status in real time</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">© 2026 SREE AMMAN PACKERS. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar (required by script.js) -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2><i class="fa-solid fa-cart-shopping"></i> Your Cart</h2><button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">₹0.00</span></div>
+      <button class="btn btn-primary" onclick="window.location.href='quote.html'">Request Quote →</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const API = '';
+
+    document.getElementById('quoteIdInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') trackQuote();
+    });
+
+    async function trackQuote() {
+      const rawVal = document.getElementById('quoteIdInput').value.trim();
+      const id = parseInt(rawVal);
+      if (!rawVal || isNaN(id) || id < 1) {
+        showResult(renderError('Please enter a valid Quote ID (a positive number).'));
+        return;
+      }
+
+      // Loading state
+      const btn = document.getElementById('trackBtn');
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Searching…';
+      btn.disabled = true;
+
+      showResult(`
+        <div class="tq-loading">
+          <div class="tq-spinner"></div>
+          <p>Looking up Quote #${id}…</p>
+        </div>`);
+
+      try {
+        const res = await fetch(`api.php?action=quotes_track&id=${id}`);
+        if (res.status === 404) {
+          showResult(renderError(`No quote found with ID #${id}. Please double-check your Quote ID.`));
+          return;
+        }
+        if (!res.ok) {
+          const d = await res.json().catch(() => ({}));
+          showResult(renderError(d.error || 'Something went wrong. Please try again.'));
+          return;
+        }
+        const data = await res.json();
+        showResult(renderResult(data));
+      } catch (err) {
+        showResult(renderError('Cannot connect to the server. Please ensure XAMPP Apache & MySQL are running and try again.'));
+      } finally {
+        btn.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i> Track Now';
+        btn.disabled = false;
+      }
+    }
+
+    function showResult(html) {
+      document.getElementById('resultArea').innerHTML = html;
+      document.getElementById('resultArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    const STATUS_CONFIG = {
+      Pending: { pillCls: 'pill-pending', msgCls: 'sm-pending', icon: 'fa-clock', msgIcon: 'fa-hourglass-half', text: 'Your quote has been received and is awaiting review. Our team will respond within 24 hours.' },
+      Reviewed: { pillCls: 'pill-reviewed', msgCls: 'sm-reviewed', icon: 'fa-eye', msgIcon: 'fa-eye', text: 'Our team has reviewed your request and is preparing a detailed quotation. Expect a call or email soon.' },
+      Confirmed: { pillCls: 'pill-confirmed', msgCls: 'sm-confirmed', icon: 'fa-circle-check', msgIcon: 'fa-circle-check', text: '🎉 Great news! Your quote has been confirmed. Our team will contact you to finalise the order details.' },
+      Rejected: { pillCls: 'pill-rejected', msgCls: 'sm-rejected', icon: 'fa-xmark', msgIcon: 'fa-circle-xmark', text: 'Unfortunately this quote could not be processed. Please reach out to us directly for assistance.' },
+    };
+
+    function renderResult(q) {
+      const date = new Date(q.created_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' });
+      const status = q.status;
+      const cfg = STATUS_CONFIG[status] || STATUS_CONFIG.Pending;
+      const isRejected = status === 'Rejected';
+      const steps = isRejected ? ['Pending', 'Reviewed', 'Rejected'] : ['Pending', 'Reviewed', 'Confirmed'];
+      const curIdx = steps.indexOf(status);
+      const fillPct = curIdx <= 0 ? 0 : Math.round((curIdx / (steps.length - 1)) * 100);
+
+      const stepsIcons = { Pending: 'fa-clock', Reviewed: 'fa-eye', Confirmed: 'fa-circle-check', Rejected: 'fa-xmark' };
+
+      const timelineHtml = steps.map((step, i) => {
+        const isDone = i < curIdx;
+        const isActive = i === curIdx;
+        const isRej = isRejected && i === steps.length - 1;
+        const dotCls = isDone ? 'done' : (isRej ? 'rejected' : (isActive ? 'active' : ''));
+        const labelCls = isDone ? 'done' : (isRej ? 'rejected' : (isActive ? 'active' : ''));
+        const icon = isDone ? 'fa-check' : (isRej ? 'fa-xmark' : stepsIcons[step]);
+        return `<div class="tq-step">
+          <div class="tq-step-dot ${dotCls}"><i class="fa-solid ${icon}"></i></div>
+          <div class="tq-step-label ${labelCls}">${step}</div>
+        </div>`;
+      }).join('');
+
+      const itemsHtml = q.items && q.items.length
+        ? q.items.map(i => `
+          <div class="tq-item-row">
+            <div>
+              <div class="tq-item-name">${esc(i.name)}</div>
+              <div class="tq-item-ply">${i.ply_type} Ply</div>
+            </div>
+            <div class="tq-item-qty"><i class="fa-solid fa-cube" style="font-size:.7rem;margin-right:5px;"></i>Qty: ${i.quantity}</div>
+          </div>`).join('')
+        : '<div class="tq-item-row" style="color:#94a3b8;justify-content:center;">No items recorded</div>';
+
+      return `
+        <div class="tq-card">
+          <div class="tq-card-top">
+            <div>
+              <div class="tq-quote-id">
+                <i class="fa-solid fa-file-invoice"></i>
+                Quote <div class="tq-quote-id-num">#${q.id}</div>
+              </div>
+              <div class="tq-quote-date"><i class="fa-regular fa-calendar" style="margin-right:5px;"></i>Submitted ${date}</div>
+            </div>
+            <div class="tq-status-pill ${cfg.pillCls}">${status}</div>
+          </div>
+
+          <div class="tq-card-body">
+            <!-- Timeline -->
+            <div class="tq-timeline">
+              <div class="tq-timeline-track">
+                <div class="tq-timeline-fill" style="width:${fillPct}%"></div>
+              </div>
+              ${timelineHtml}
+            </div>
+
+            <!-- Info tiles -->
+            <div class="tq-info-grid">
+              <div class="tq-info-tile">
+                <div class="tq-info-label"><i class="fa-solid fa-user"></i>Customer</div>
+                <div class="tq-info-value">${esc(q.customer_name)}</div>
+              </div>
+              <div class="tq-info-tile">
+                <div class="tq-info-label"><i class="fa-solid fa-location-dot"></i>Location</div>
+                <div class="tq-info-value">${esc(q.city || '—')}</div>
+              </div>
+              ${q.delivery_timeline ? `
+              <div class="tq-info-tile">
+                <div class="tq-info-label"><i class="fa-solid fa-truck-fast"></i>Delivery</div>
+                <div class="tq-info-value">${esc(q.delivery_timeline)}</div>
+              </div>` : ''}
+              <div class="tq-info-tile">
+                <div class="tq-info-label"><i class="fa-solid fa-circle-dot"></i>Status</div>
+                <div class="tq-info-value">${status}</div>
+              </div>
+            </div>
+
+            <!-- Items -->
+            <div class="tq-items-section">
+              <div class="tq-items-title">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                Ordered Items
+              </div>
+              ${itemsHtml}
+            </div>
+
+            <!-- Status message -->
+            <div class="tq-status-msg ${cfg.msgCls}">
+              <i class="fa-solid ${cfg.msgIcon}"></i>
+              <div class="tq-status-msg-text">${cfg.text}</div>
+            </div>
+
+            <!-- CTAs -->
+            <div class="tq-cta">
+              <a href="products.html" class="tq-btn tq-btn-outline">
+                <i class="fa-solid fa-boxes-stacked"></i> Browse Products
+              </a>
+              <a href="index.html#contact-form" class="tq-btn tq-btn-primary">
+                <i class="fa-solid fa-phone"></i> Contact Us
+              </a>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    function renderError(message) {
+      return `
+        <div class="tq-error-card">
+          <div class="tq-error-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+          <h3>Quote Not Found</h3>
+          <p>${esc(message)}</p>
+          <div class="tq-cta">
+            <a href="index.html#contact-form" class="tq-btn tq-btn-primary">
+              <i class="fa-solid fa-phone"></i> Contact Support
+            </a>
+            <a href="products.html" class="tq-btn tq-btn-outline">
+              <i class="fa-solid fa-arrow-left"></i> Back to Products
+            </a>
+          </div>
+        </div>`;
+    }
+
+    function esc(s) {
+      return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    // Auto-fill from URL param (e.g. quote-track.html?id=42)
+    const _urlId = new URLSearchParams(window.location.search).get('id');
+    if (_urlId) {
+      document.getElementById('quoteIdInput').value = _urlId;
+      setTimeout(trackQuote, 600);
+    }
+  </script>
+</body>
+
+</html>
